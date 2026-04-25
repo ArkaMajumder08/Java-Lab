@@ -1,0 +1,62 @@
+Program 18 – Multithreading (Two Threads)
+Write a program to create two threads. One will print from 1 to 10, another will print from 10 to 1. In the second thread, if the value is 6 then it will sleep for 1000ms.
+
+Code:
+class thread1 extends Thread
+{
+public void run()
+{
+for (int i = 1; i <= 10; i++)
+{
+System.out.println("Thread 1: " + i);
+}
+}
+}
+
+class thread2 extends Thread
+{
+public void run()
+{
+for (int i = 10; i >= 1; i--)
+{
+System.out.println("Thread 2: " + i);
+if (i == 6)
+{
+try
+{
+Thread.sleep(1000);
+}
+catch (InterruptedException e)
+{
+System.out.println("Thread Interrupted");
+}
+}
+}
+}
+}
+
+class ass18
+{
+public static void main(String[] args)
+{
+thread1 t1 = new thread1();
+thread2 t2 = new thread2();
+t1.start();
+t2.start();
+}
+}
+
+Output:
+$ java ass18
+Thread 1: 1
+Thread 1: 2
+...
+Thread 1: 8
+Thread 2: 10
+Thread 1: 9
+Thread 1: 10
+Thread 2: 9
+...
+Thread 2: 6  (sleeps 1000ms here)
+...
+Thread 2: 1

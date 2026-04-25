@@ -1,0 +1,49 @@
+Program 21 – Login Window using AWT
+Write a program to design a login window using AWT.
+Code:
+import java.awt.*;
+import java.awt.event.*;
+class LoginWindow extends Frame implements ActionListener
+{
+    Label l1, l2;
+    TextField t1, t2;
+    Button btn;
+    LoginWindow()
+    {
+        setTitle("Login");
+        setSize(300, 200);
+        setLayout(new FlowLayout());
+        l1 = new Label("Username:");
+        t1 = new TextField(15);
+        l2 = new Label("Password:");
+        t2 = new TextField(15);
+        t2.setEchoChar('*');
+        btn = new Button("Login");
+        btn.addActionListener(this);
+        add(l1); add(t1); add(l2); add(t2); add(btn);
+        setVisible(true);
+        addWindowListener(new WindowAdapter()
+        {
+            public void windowClosing(WindowEvent e)
+            { System.exit(0); }
+        });
+    }
+    public void actionPerformed(ActionEvent e)
+    {
+        String user = t1.getText();
+        String pass = t2.getText();
+        if (user.equals("admin") && pass.equals("1234"))
+            System.out.println("Login Successful!");
+        else
+            System.out.println("Invalid Credentials!");
+    }
+    public static void main(String[] args)
+    {
+        new LoginWindow();
+    }
+}
+Output:
+$ javac LoginWindow.java
+$ java LoginWindow
+[Login window opens. Enter username: admin, password: 1234]
+Login Successful!

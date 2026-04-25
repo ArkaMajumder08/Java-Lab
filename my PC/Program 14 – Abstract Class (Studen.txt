@@ -1,0 +1,55 @@
+Program 14 – Abstract Class (Student & Teacher)
+Write a program using an abstract class Person with abstract methods read() and print(). Implement it with subclasses Student and Teacher.
+
+Code:
+abstract class person
+{
+abstract void read(String n, int id);
+abstract void print();
+}
+
+class student extends person
+{
+String n;
+int id;
+
+void read(String n, int id)
+{
+this.n = n;
+this.id = id;
+}
+
+void print()
+{
+System.out.println("Student\nNAME: " + n + "\nIn ID: " + id);
+}
+}
+
+class teacher extends person
+{
+// Same as student class structure
+}
+
+class abstractclass
+{
+public static void main(String[] args)
+{
+int ids = Integer.parseInt(args[1]);
+int idt = Integer.parseInt(args[3]);
+person ob = new student();
+ob.read(args[0], ids);
+ob.print();
+ob = new teacher();
+ob.read(args[2], idt);
+ob.print();
+}
+}
+
+Output:
+$ java abstractclass Ronit 28 Akash 29
+Student
+NAME: Ronit
+ID: 28
+Teacher
+NAME: Akash
+ID: 29

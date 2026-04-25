@@ -1,0 +1,47 @@
+Program 12 – Area Calculation using Inheritance
+Write a program to calculate the area of a Rectangle and a Triangle using inheritance from a superclass Dimension.
+
+Code:
+class dimension
+{
+void area(int a, int b)
+{
+System.out.println("Area Calculation");
+}
+}
+
+class rectangle extends dimension
+{
+void area(int l, int b)
+{
+System.out.println("Area of the rectangle: " + (l * b));
+}
+}
+
+class triangle extends dimension
+{
+void area(int b, int h)
+{
+System.out.println("Area of the triangle: " + (0.5 * b * h));
+}
+}
+
+class areacal
+{
+public static void main(String[] args)
+{
+int l = Integer.parseInt(args[0]);
+int br = Integer.parseInt(args[1]);
+int bs = Integer.parseInt(args[2]);
+int h = Integer.parseInt(args[3]);
+dimension ob = new rectangle();
+ob.area(l, br);
+ob = new triangle();
+ob.area(bs, h);
+}
+}
+
+Output:
+$ java areacal 2 3 3 5
+Area of the rectangle: 6
+Area of the triangle: 7.5

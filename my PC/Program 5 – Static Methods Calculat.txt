@@ -1,0 +1,43 @@
+Program 5 – Static Methods: Calculator
+Create a class Calculator that has 4 static methods that perform addition, subtraction, multiplication, and division of 2 integer numbers and print the result at main method.
+
+Code:
+class Calculator
+{
+static int add(int a, int b)
+{
+return (a + b);
+}
+
+static int sub(int a, int b)
+{
+return (a - b);
+}
+
+static int mul(int a, int b)
+{
+return (a * b);
+}
+
+static double div(int a, int b)
+{
+return ((double) a / b);
+}
+
+public static void main(String[] args)
+{
+int a = Integer.parseInt(args[0]);
+int b = Integer.parseInt(args[1]);
+System.out.println("Addition       = " + add(a, b));
+System.out.println("Subtraction    = " + sub(a, b));
+System.out.println("Multiplication = " + mul(a, b));
+System.out.println("Division       = " + div(a, b));
+}
+}
+
+Output:
+$ java Calculator 10 2
+Addition       = 12
+Subtraction    = 8
+Multiplication = 20
+Division       = 5.0

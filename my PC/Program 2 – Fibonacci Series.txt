@@ -1,0 +1,27 @@
+Program 2 – Fibonacci Series
+Write a program to generate the Fibonacci series up to n terms.
+
+Code:
+class fibonacci
+{
+public static void main(String str[])
+{
+int n = Integer.parseInt(str[0]);
+int c = 1;
+int p = 0;
+int t;
+for (int i = 1; i <= n-2; i++)
+{
+t = c + p;
+System.out.print(p + " ");
+p = c;
+c = t;
+}
+}
+}
+
+Output:
+$ java fibonacci 10
+0 1 1 2 3 5 8 13 21 34
+
+

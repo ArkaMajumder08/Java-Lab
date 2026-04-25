@@ -1,0 +1,43 @@
+Program 15 – Interface: Volume (Cylinder & Cone)
+Define an interface called Volume having variable double pi = 3.14 and method double calcVolume(double radius, double height). Write two subclasses Cylinder and Cone that implement the interface to calculate their respective volumes.
+
+Code:
+interface volume
+{
+final double pi = 3.14;
+public double calcvolume(double radius, double height);
+}
+
+class Cylinder implements volume
+{
+public double calcvolume(double radius, double height)
+{
+return (pi * radius * radius * height);
+}
+}
+
+class Cone implements volume
+{
+public double calcvolume(double radius, double height)
+{
+return ((pi * radius * radius * height) / 3);
+}
+}
+
+class ass15
+{
+public static void main(String[] args)
+{
+int r = Integer.parseInt(args[0]);
+int h = Integer.parseInt(args[1]);
+volume ob = new Cylinder();
+System.out.println("Volume of Cylinder: " + (ob.calcvolume(r, h)));
+ob = new Cone();
+System.out.println("Volume of Cone: " + (ob.calcvolume(r, h)));
+}
+}
+
+Output:
+$ java ass15 2 3
+Volume of Cylinder: 37.68
+Volume of Cone: 12.56

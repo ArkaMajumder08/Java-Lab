@@ -1,0 +1,40 @@
+Program 8 – Matrix Multiplication
+Write a program to obtain the product of the following two matrices:   Matrix A: [[3,5,9,3],[7,2,8,5],[1,4,6,7]]    Matrix B: [[9,7],[5,1],[2,6],[3,4]]
+
+Code:
+class mulmat
+{
+public static void main(String[] args)
+{
+int a[][] = new int[][]{{3,5,9,3},{7,2,8,5},{1,4,6,7}};
+int b[][] = new int[][]{{9,7},{5,1},{2,6},{3,4}};
+int c[][] = new int[3][2];
+int sum;
+for (int k = 0; k < 3; k++)
+{
+for (int j = 0; j < 2; j++)
+{
+sum = 0;
+for (int i = 0; i < 4; i++)
+{
+sum += (a[k][i] * b[i][j]);
+}
+c[k][j] = sum;
+}
+}
+for (int i = 0; i < 3; i++)
+{
+for (int j = 0; j < 2; j++)
+{
+System.out.print(c[i][j] + " ");
+}
+System.out.println();
+}
+}
+}
+
+Output:
+$ java mulmat
+79  92
+104 119
+62  75

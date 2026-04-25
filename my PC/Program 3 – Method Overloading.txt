@@ -1,0 +1,42 @@
+Program 3 – Method Overloading: Volume
+Write a class Volume and overload a method to calculate the volume of a rectangular box, a cube, and a cylinder.
+
+Code:
+class Volume
+{
+void volume(int l, int b, int h)   // rectangular box
+{
+System.out.println("Volume of Box = " + (l * b * h));
+}
+
+void volume(int s)   // cube
+{
+System.out.println("Volume of Cube = " + (s * s * s));
+}
+
+void volume(double r, int h)   // cylinder
+{
+double v = 3.14 * r * r * h;
+System.out.println("Volume of Cylinder = " + v);
+}
+
+public static void main(String[] args)
+{
+Volume ob = new Volume();
+int l = Integer.parseInt(args[0]);
+int b = Integer.parseInt(args[1]);
+int h = Integer.parseInt(args[2]);
+int s = Integer.parseInt(args[3]);
+double r = Double.parseDouble(args[4]);
+int h2 = Integer.parseInt(args[5]);
+ob.volume(l, b, h);
+ob.volume(s);
+ob.volume(r, h2);
+}
+}
+
+Output:
+$ java Volume 3 4 5 2 2.0 6
+Volume of Box = 60
+Volume of Cube = 8
+Volume of Cylinder = 75.36

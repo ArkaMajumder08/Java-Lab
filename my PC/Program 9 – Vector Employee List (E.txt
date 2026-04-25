@@ -1,0 +1,70 @@
+Program 9 – Vector: Employee List (EmpList)
+Create a vector named EmpList which contains objects of Employee class with attributes: emp_id, name, designation (Manager, Secretary, Clerk) and Salary. (i) Insert one object per category. (ii) Search by emp_id. (iii) Add at any position. (iv) Delete a record. Show detailed info of all.
+
+Code:
+import java.util.Vector;
+
+class Employee
+{
+int emp_id;
+String name;
+String designation;
+double salary;
+
+Employee(int id, String n, String d, double s)
+{
+emp_id = id;
+name = n;
+designation = d;
+salary = s;
+}
+
+void display()
+{
+System.out.println("ID: " + emp_id + "  Name: " + name
+    + "  Designation: " + designation + "  Salary: " + salary);
+}
+}
+
+class EmpList
+{
+public static void main(String[] args)
+{
+Vector<Employee> v = new Vector<Employee>();
+
+// (i) Insert one employee per category
+v.add(new Employee(1, "Raj",    "Manager",   75000));
+v.add(new Employee(2, "Priya",  "Secretary", 45000));
+v.add(new Employee(3, "Amit",   "Clerk",     30000));
+
+// (iii) Add employee at position index 1
+v.add(1, new Employee(4, "Suresh", "Clerk", 28000));
+
+// (ii) Search by emp_id = 2
+int searchId = 2;
+System.out.println("Searching for emp_id = " + searchId + ":");
+for (int i = 0; i < v.size(); i++)
+{
+if (v.get(i).emp_id == searchId)
+v.get(i).display();
+}
+
+// (iv) Delete employee at index 2
+v.remove(2);
+
+// Display all employees
+System.out.println("All Employees:");
+for (int i = 0; i < v.size(); i++)
+v.get(i).display();
+}
+}
+
+Output:
+$ java EmpList
+Searching for emp_id = 2:
+ID: 2  Name: Priya  Designation: Secretary  Salary: 45000.0
+All Employees:
+ID: 1  Name: Raj     Designation: Manager    Salary: 75000.0
+ID: 4  Name: Suresh  Designation: Clerk      Salary: 28000.0
+ID: 3  Name: Amit    Designation: Clerk      Salary: 30000.0
+

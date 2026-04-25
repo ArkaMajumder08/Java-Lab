@@ -1,0 +1,60 @@
+Program 13 – Shipment Cost (Multi-level Inheritance)
+Write a program using multi-level inheritance with classes Box, BoxWeight (extends Box), and Shipment (extends BoxWeight) to calculate volume and shipment cost.
+
+Code:
+class box
+{
+double vol;
+
+void volume(double l, double b, double h)
+{
+vol = l * b * h;
+}
+}
+
+class boxweight extends box
+{
+double w;
+
+boxweight(double l, double b, double h, double w)
+{
+volume(l, b, h);
+this.w = w;
+}
+}
+
+class shipment extends boxweight
+{
+shipment(double l, double b, double h, double w)
+{
+super(l, b, h, w);
+}
+
+int cv = 15;
+int cw = 10;
+
+void shipcost()
+{
+System.out.println("Volume: " + vol + " In Weight: " + w
+    + " Shipment Cost: " + ((cv * vol) + (cw * w)));
+}
+}
+
+class shipzal
+{
+public static void main(String[] args)
+{
+double l = Double.parseDouble(args[0]);
+double b = Double.parseDouble(args[1]);
+double h = Double.parseDouble(args[2]);
+double w = Double.parseDouble(args[3]);
+shipment ob = new shipment(l, b, h, w);
+ob.shipcost();
+}
+}
+
+Output:
+$ java shipzal 2 3 4 20
+Volume: 24.0
+Weight: 20.0
+Shipment Cost: 560.0

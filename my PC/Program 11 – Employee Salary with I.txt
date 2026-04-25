@@ -1,0 +1,62 @@
+Program 11 – Employee Salary with Inheritance
+The following is the salary structure of a company. Create a Superclass to calculate Regular Salary and three Subclasses to calculate the net salary of three different categories of employees: Scientist, Developer, and Project Leader.
+
+Code:
+class Employee_Salary
+{
+double da, hra, ma;
+
+double Regular_Salary(double basic)
+{
+da = (0.75 * basic);
+hra = (0.25 * basic);
+ma = 1000;
+return (basic + da + hra + ma);
+}
+}
+
+class Scientist extends Employee_Salary
+{
+double RegSalary, bonus, Net_bonus;
+int publication;
+
+Scientist(double basic, int x)
+{
+RegSalary = super.Regular_Salary(basic);
+bonus = 1000;
+publication = x;
+Net_bonus = bonus * publication;
+}
+
+void Net_Salary()
+{
+System.out.println("Net Salary For Scientist = " + (RegSalary + Net_bonus));
+}
+}
+
+// (Same structure for Developer and Project_leader classes)
+
+class Salary
+{
+public static void main(String[] args)
+{
+double a = Double.parseDouble(args[0]);
+int x = Integer.parseInt(args[1]);
+double b = Double.parseDouble(args[2]);
+int y = Integer.parseInt(args[3]);
+double c = Double.parseDouble(args[4]);
+int z = Integer.parseInt(args[5]);
+Scientist ob1 = new Scientist(a, x);
+ob1.Net_Salary();
+Developer ob2 = new Developer(b, y);
+ob2.Net_Salary();
+Project_leader ob3 = new Project_leader(c, z);
+ob3.Net_Salary();
+}
+}
+
+Output:
+$ java Salary 40000 1 30000 2 20000 5
+Net Salary for Scientist = 82000.0
+Net Salary for Developer = 85000.0
+Net Salary for Project Leader = 43500.0

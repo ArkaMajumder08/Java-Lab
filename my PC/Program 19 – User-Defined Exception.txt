@@ -1,0 +1,54 @@
+Program 19 – User-Defined Exception
+Create a user-defined exception and throw it from a method when it tries to subtract a bigger number from a smaller number. Handle it properly.
+
+Code:
+import java.util.Scanner;
+
+class InvalidSubException extends Exception
+{
+InvalidSubException(String message)
+{
+super(message);
+}
+}
+
+class subtraction
+{
+static void sub(int a, int b) throws InvalidSubException
+{
+if (a < b)
+{
+throw new InvalidSubException("Subtracting a bigger number from a smaller number");
+}
+System.out.println("Result: " + (a - b));
+}
+
+public static void main(String[] args)
+{
+Scanner sc = new Scanner(System.in);
+System.out.println("Enter two integers: ");
+int a = sc.nextInt();
+int b = sc.nextInt();
+try
+{
+sub(a, b);
+}
+catch (InvalidSubException e)
+{
+System.out.println("Exception: " + e.getMessage());
+}
+}
+}
+
+Output:
+$ java subtraction
+Enter two integers:
+4
+2
+Result: 2
+
+$ java subtraction
+Enter two integers:
+2
+4
+Exception: Subtracting a bigger number from a smaller number

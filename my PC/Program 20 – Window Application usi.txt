@@ -1,0 +1,39 @@
+Program 20 – Window Application using AWT
+Develop a window application using AWT.
+Code:
+
+import java.awt.*;
+import java.awt.event.*;
+
+class MyWindow extends Frame {
+
+    MyWindow() {
+        setTitle("AWT Window");
+        setSize(400, 800);
+        setLayout(new FlowLayout());
+
+        Label l = new Label("Hello, this is the AWT Window");
+        add(l);
+
+        Button b = new Button("Click Me");
+        add(b);
+
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                dispose();
+            }
+        });
+setVisible(true);
+    }
+}
+
+public class Windo {
+    public static void main(String[] args) {
+        new MyWindow();
+    }
+}
+Output:
+C:\SR ECE OOPS> javac Windo.java
+C:\SR ECE OOPS> java Windo.java
+┌─ AWT Window ──────── – □ ×─┐
+│  Hello, this is the AWT WINDOW  [Click Me] │

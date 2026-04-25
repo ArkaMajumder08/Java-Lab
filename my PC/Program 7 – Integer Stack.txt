@@ -1,0 +1,43 @@
+Program 7 – Integer Stack
+Write a program for a class Stack that defines an Integer Stack which can hold 3 integer values. Implement stack operations (push, pop, display) and print the result. Take the inputs from the user.
+
+Code:
+class stack
+{
+int stock[] = new int[5];
+int top = 0;
+
+void push(int a)
+{
+stock[top] = a;
+top += 1;
+}
+
+void pop()
+{
+top -= 1;
+}
+
+void display()
+{
+for (int i = 0; i < top; i++)
+System.out.print(" " + stock[i]);
+}
+
+public static void main(String[] args)
+{
+stack ob = new stack();
+for (int i = 0; i < 5; i++)
+ob.push(Integer.parseInt(args[i]));
+ob.display();
+ob.pop();
+System.out.print("\nOutput after Pop");
+ob.display();
+}
+}
+
+Output:
+$ java stack 1 2 3 4 5
+ke 1 2 3 4 5
+Output after Pop 1 2 3 4
+

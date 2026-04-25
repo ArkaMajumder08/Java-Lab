@@ -1,0 +1,58 @@
+Program 16 – Package: Arithmetic Operations
+Create one package and write a Java file with 4 methods to handle 4 basic arithmetic operations. Save the file in the package. Write one program that imports said file to use these methods.
+
+Package Code (arithop/Ops.java):
+package arithop;
+
+public class Ops
+{
+public int add(int a, int b)
+{
+return (a + b);
+}
+
+public int sub(int a, int b)
+{
+return (a - b);
+}
+
+public double mul(int a, int b)
+{
+return (a * b);
+}
+
+public double div(int a, int b)
+{
+return (a / b);
+}
+}
+
+Main Code (ass16.java):
+import arithop.Ops;
+import java.util.Scanner;
+
+class ass16
+{
+public static void main(String[] args)
+{
+Scanner sc = new Scanner(System.in);
+Ops ob = new Ops();
+System.out.println("Enter two Integers: ");
+int a = sc.nextInt();
+int b = sc.nextInt();
+System.out.println("Addition: " + (ob.add(a, b)));
+System.out.println("Subtraction: " + (ob.sub(a, b)));
+System.out.println("Multiplication: " + (ob.mul(a, b)));
+System.out.println("Division: " + (ob.div(a, b)));
+}
+}
+
+Output:
+$ java ass16
+Enter two Integers:
+4 2
+Addition: 6
+Subtraction: 2
+Multiplication: 8.0
+Division: 2.0
+
