@@ -1,0 +1,48 @@
+Package----------
+
+package mypack;
+
+public class PackCalc {
+
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    public int sub(int a, int b) {
+        return a - b;
+    }
+
+    public int mul(int a, int b) {
+        return a * b;
+    }
+
+    public int div(int a, int b) {
+        return a / b;
+    }
+}
+
+
+
+Main ---------------
+
+
+import mypack.PackCalc;
+
+public class Main {
+    public static void main(String[] args) {
+
+        PackCalc c = new PackCalc();
+
+        System.out.println("Addition = " + c.add(10, 5));
+        System.out.println("Subtraction = " + c.sub(10, 5));
+        System.out.println("Multiplication = " + c.mul(10, 5));
+        System.out.println("Division = " + c.div(10, 5));
+    }
+}
+
+
+Output ----------
+
+javac -d. PackCalc.java
+javac Main.java
+java Main
